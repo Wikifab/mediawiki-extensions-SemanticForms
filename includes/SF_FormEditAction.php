@@ -142,6 +142,9 @@ class SFFormEditAction extends Action
 	static function displayTab2( $obj, &$links ) {
 		// the old '$content_actions' array is thankfully just a
 		// sub-array of this one
+		if( ! isset($links['views'])) {
+			$links['views'] = array();
+		}
 		return self::displayTab( $obj, $links['views'] );
 	}
 
@@ -196,7 +199,7 @@ class SFFormEditAction extends Action
 			$warning_text = "\t" . '<div class="warningbox">' . wfMessage( 'sf_formedit_morethanoneform' )->text() . "</div>\n";
 			$output->addWikiText( $warning_text );
 		}
-		
+
 		$form_name = $form_names[0];
 		$page_name = SFUtils::titleString( $title );
 
