@@ -118,7 +118,9 @@ class SFTextInput extends SFFormInput {
 			foreach ( $result['query']['pages'] as $page ) {
 				if ( array_key_exists( 'imageinfo', $page ) ) {
 					foreach ( $page['imageinfo'] as $imageInfo ) {
-						$url = $imageInfo['thumburl'];
+						if(isset($imageInfo['thumburl'])) {
+							$url = $imageInfo['thumburl'];
+						}
 						break;
 					}
 				}
